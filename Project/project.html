@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+body {
+            margin: 0;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+    
+        .navbar {
+            background: linear-gradient(135deg, #1e1e2e, #3a3a5a, #5c5c8a);
+            color: white;
+            padding: 20px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .brand a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.6em;
+            font-weight: bold;
+        }
+
+        .toggler {
+            display: none;
+            font-size: 1.5em;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 25px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-menu li a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-menu li a.active {
+            background-color: white;
+            color: black;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .toggler {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background-color: #333;
+                width: 100%;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                border-radius: 0 0 30px 30px;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li {
+                text-align: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .nav-menu li:last-child {
+                border-bottom: none;
+            }
+        }
+
+body{
+    background-color: #1e1e2e;
+    overflow-x:hidden;
+}
+
+
+.intro-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 20px; */
+  background-color: #1e1e2e;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.content-left {
+    max-width: 50%;
+    margin-right: auto;
+    margin-left: 1%;
+}
+
+.content-left2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 100vh;
+    width: 5%;
+    left: 0;
+    top: 0;
+    padding: 7px;
+}
+
+.footer {
+  background: linear-gradient(135deg, #1e1e2e, #3a3a5a, #5c5c8a);
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+ul {
+  list-style: none;
+}
+
+.example-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.example-2 .icon-content {
+  margin: 0 10px;
+  position: relative;
+}
+
+.social {
+    height: 37px;
+    width: 37px;
+    transition: transform 0.3s ease;
+}
+
+.social:hover {
+    transform: scale(1.2);
+}
+
+.content-left2 {
+    max-width: 5%;
+    margin-right: auto;
+    margin-left: 1%;
+}
+
+.intro-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #1e1e2e;
+    color: white;
+    padding-top: 17px;
+    width: 100%;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+}
+
+#card1 {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  animation: float 3s ease-in-out infinite;
+}
+
+#card1 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+#card3 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+#card2 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+#card2 {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  animation: float 3s ease-in-out infinite;
+}
+
+#card3 {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  background-image: url('image.png');
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  animation: float 3s ease-in-out infinite;
+}
+
+.card:hover {
+  animation: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card svg {
+  width: 48px;
+  fill: #333;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card:hover .card__content {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 1;
+}
+
+.card__title {
+  margin: 0;
+  font-size: 24px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 16px;
+  color: #000000;
+  line-height: 1.4;
+}
+
+.card:hover svg {
+  scale: 0;
+  transform: rotate(-45deg);
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.card {
+  position: relative;
+  width: 500px;
+  height: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  animation: float 3s ease-in-out infinite;
+}
+
+.card img {
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+  border-bottom: 2px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card__subtitle {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #d9d9d9;
+  text-align: center;
+  font-weight: bold;
+}
+
+.card__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card:hover .card__content {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 1;
+}
+
+.card__title {
+  margin: 0;
+  font-size: 24px;
+  color: #000000;
+  font-weight: 700;
+  padding-bottom: 16px;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 16px;
+  color: #000000;
+  line-height: 1.4;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+
+    </style>
+</head>
+<body>
+    
+    <!-- HTML -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="brand">
+                <a href="https://www.linkedin.com/in/neerugangarh/" target="_blank">Neeru Gangarh</a>
+            </div>
+            <button class="toggler" id="toggler">&#9776;</button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../Home/home.html" class="nav-link">Home</a></li>
+                <li><a href="../About/about.html" class="nav-link">About</a></li>
+                <li><a href="../Portfolio/portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="../Project/project.html" class="nav-link active">Projects</a></li>
+                <li><a href="../Feedback/feedback.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+     
+    
+
+    <div class="intro-section" id="home">
+        
+            <div class="content-left2">
+            <ul class="example-2">
+                <li class="icon-content">
+                  <a
+                    href="https://www.linkedin.com/in/neerugangarh/"
+                  >
+                  <img src="image.png" class="social">
+                  </a>
+                </li>
+
+                <li class="icon-content">
+                  <a
+                    href="https://github.com/neeru24"
+                  >
+                  <img src="github_3291667.png" alt="" class="social">
+                  </a>
+                </li>
+
+                <li class="icon-content">
+                  <a
+                  href="https://youtu.be/HxgnzT8Tj9g?si=92uRuWMhjmxabfap"
+                  >
+                  <img src="youtube_1384060.png" alt="" class="social">
+                  </a>
+                </li>
+
+                <li class="icon-content">
+                  <a
+                  href="mailto:neerugangarh@gmail.com"
+                  >
+                  <img src="user_6542983.png" alt="" class="social">
+                  </a>
+                </li>
+
+                <li class="icon-content">
+                  <a
+                  href="https://mytoplinks-neeru.netlify.app/"
+                  >
+                  <img src="chain_6217552.png" alt="" class="social">
+                  </a>
+                </li>
+
+             </ul>
+    </div>
+
+    
+    
+
+    <div class="intro-section" id="home">
+      <h1 style="padding-bottom: 25px;">Projects 💻</h1>
+   </div>
+  
+
+  
+
+   <div class="card-container">
+    <div class="card" id="card1">
+      <img src="text2voice.png" alt="Card image">
+      <p class="card__subtitle">
+        Text to Voice Converter 🎙️
+      </p>
+      <div class="card__content">
+        <p class="card__title">Text to Voice Converter 🎙️</p>
+        <p class="card__description">
+          This project enables users to seamlessly convert text into speech, offering the flexibility to choose from various voice options and listen to the spoken version of the input text.
+          <br><br>
+          <a href="https://github.com/neeru24/Text-to-voice-convertor" target="_blank">Check here</a> 🔗
+
+        </p>
+      </div>
+    </div>
+    <div class="card" id="card2">
+      <img src="2. Tic-Tac-Toe.png" alt="Card image">
+      <p class="card__subtitle">
+        Tic Tac Toe 🧩
+      </p>
+      <div class="card__content">
+        <p class="card__title">Tic Tac Toe 🧩</p>
+        <p class="card__description">
+          This is a web-based Tic-Tac-Toe game implemented using HTML, CSS, and JavaScript. It allows players to take turns placing their symbols (X or O) on a 3x3 grid. The game detects when a player has won or if the game ends in a draw. 
+          <br><br>
+          <a href="https://github.com/neeru24/Tic-Tac-Toe-" target="_blank">Check here</a> 🔗
+        </p>
+      </div>
+    </div>
+</div>
+
+    <div class="card-container">
+      <div class="card" id="card1">
+        <img src="keycode2.png" alt="Card image">
+        <p class="card__subtitle">
+          KeyCodes Reveal 🔑 
+        </p>
+        <div class="card__content">
+          <p class="card__title">KeyCodes Reveal 🔑</p>
+          <p class="card__description">
+            This project features key press detection using the keydown event, enabling immediate response to user keyboard interactions for a dynamic experience. 
+            It also includes a visually appealing table displaying key details, such as the name of the pressed key (e.g., "Space") and its numeric keycode, providing users with clear and insightful information.
+            <br><br>
+            <a href="https://github.com/neeru24/JavaScript-Diaries/blob/main/07_Projects/08_keyCode.html" target="_blank">Check here</a> 🔗
+          </p>
+        </div>
+      </div>
+      <div class="card" id="card2">
+        <img src="themeSwitch.png" alt="Card image">
+        <p class="card__subtitle">
+          Color Switcher 🎨
+        </p>
+        <div class="card__content">
+          <p class="card__title">Color Switcher 🎨</p>
+          <p class="card__description">
+            I developed an interactive color switcher that enables users to instantly change the background color of the webpage with just a click. By selecting any of the color buttons, 
+            the background transforms to the chosen color, offering a fun and customizable way to personalize the page.
+            <br><br>
+            <a href="https://github.com/neeru24/JavaScript-Diaries/blob/main/07_Projects/01_themeSwitcher.html" target="_blank">Check here</a> 🔗
+          </p>
+        </div>
+      </div>
+      </div>
+
+
+      <div class="intro-section" id="home">
+        <h1 style="padding-bottom: 25px;">Clone based Projects 👩‍💻</h1>
+     </div>
+
+     <div class="card-container">
+      <div class="card" id="card1">
+        <img src="1. Amazon-Clone.png" alt="Card image">
+        <p class="card__subtitle">
+          Amazon Clone 🛒
+        </p>
+        <div class="card__content">
+          <p class="card__title">Amazon Clone 🛍️</p>
+          <p class="card__description">
+            This project is a frontend clone of the popular online marketplace, Amazon, built entirely 
+            using HTML and CSS. The aim of this project is to recreate the look and feel of Amazon's frontend interface.
+            <br><br>
+            <a href="https://github.com/neeru24/Amazon-Clone" target="_blank">Check here</a> 🔗
+          </p>
+        </div>
+      </div>
+      <div class="card" id="card2">
+        <img src="fbook.png" alt="Card image">
+        <p class="card__subtitle">
+          Facebook Clone 👥
+        </p>
+        <div class="card__content">
+          <p class="card__title">Facebook Clone 👥</p>
+          <p class="card__description">
+            This project is a frontend clone of the login and signup page of the popular social media platform, Facebook. Built using HTML and CSS, this clone aims to replicate the visual design of Facebook's login and signup page.
+            <br><br>
+            <a href="https://github.com/neeru24/Facebook-Clone-" target="_blank">Check here</a> 🔗
+          </p>
+        </div>
+      </div>
+      </div>
+
+
+      <div class="intro-section" id="home">
+        <h1 style="padding-bottom: 25px;">Other Projects ⤵️</h1>
+     </div>
+
+     <div class="card-container">
+      <div class="card" id="card1">
+        <img src="Calculator-output.png" alt="Card image">
+        <p class="card__subtitle">
+          Calculator 📱
+        </p>
+        <div class="card__content">
+          <p class="card__title">Calculator 📱</p>
+          <p class="card__description">
+            This is a simple calculator web application built using HTML, CSS, and JavaScript. It allows users to perform basic arithmetic operations such as addition, subtraction, multiplication, and division.
+            <br><br>
+            <a href="https://github.com/neeru24/Calculator-JS" target="_blank">Check here</a> 🔗
+          </p>
+        </div>
+      </div>
+      <div class="card" id="card2">
+        <img src="bmi.png" alt="Card image">
+        <p class="card__subtitle">
+          BMI Calculator 📲
+        </p>
+        <div class="card__content">
+          <p class="card__title">BMI Calculator 📲</p>
+          <p class="card__description">
+            This tool helps users easily calculate their Body Mass Index based on their height and weight.
+            The calculator checks for valid height and weight entries, ensuring that users receive accurate results.
+            <br><br>
+            <a href="https://github.com/neeru24/JavaScript-Diaries/blob/main/07_Projects/03_BMI.html" target="_blank">Check here</a> 🔗
+          </p>
+        </div>
+      </div>
+      </div>
+
+      <div class="card-container">
+        <div class="card" id="card1">
+          <img src="digitalClock.png" alt="Card image">
+          <p class="card__subtitle">
+            Digital Clock 🕒
+          </p>
+          <div class="card__content">
+            <p class="card__title">Digital Clock 🕒</p>
+            <p class="card__description">
+              I created a digital clock that shows the current local time, updating every second. With the help of setInterval(), the clock refreshes every second to display the accurate time. 
+              This project demonstrates how JavaScript’s Date object and DOM manipulation work together to keep the time display current.
+              <br><br>
+              <a href="https://github.com/neeru24/JavaScript-Diaries/blob/main/07_Projects/02_clock.html" target="_blank">Check here</a> 🔗
+            </p>
+          </div>
+        </div>
+        <div class="card" id="card2">
+          <img src="guess1.png" alt="Card image">
+          <p class="card__subtitle">
+            Guess the number 🎮
+          </p>
+          <div class="card__content">
+            <p class="card__title">Guess the number 🎮</p>
+            <p class="card__description">
+              I created a fun Number Guessing Game using JavaScript! 🕹️ You can guess a number between 1 and 100 with a maximum of 10 attempts. 
+              The game provides feedback on whether the guessed number is too high or too low, helping players to narrow down their choices. 
+              <br><br>
+              <a href="https://github.com/neeru24/JavaScript-Diaries/blob/main/07_Projects/04_Guess.html" target="_blank">Check here</a> 🔗
+            </p>
+          </div>
+        </div>
+        </div>
+
+        <div class="card-container">
+          <div class="card" id="card1">
+            <img src="quote2.png" alt="Card image">
+            <p class="card__subtitle">
+              Random Quote Generator 💬
+            </p>
+            <div class="card__content">
+              <p class="card__title">
+                Random Quote Generator 💬
+              </p>
+              <p class="card__description">
+                This project allows you to display a random quote from a collection with just one click!
+                Each time you click, a new quote appears!
+                The interface is styled using vibrant colors, gradients, and hover effects to make the experience visually engaging.
+                <br><br>
+                <a href="https://github.com/neeru24/JavaScript-Diaries/blob/main/07_Projects/06_Quote.html" target="_blank">Check here</a> 🔗
+              </p>
+            </div>
+          </div>
+          
+          <div class="card" id="card2">
+            <img src="unlimited.png" alt="Card image">
+            <p class="card__subtitle">
+              Unlimited Colors 🎨
+            </p>
+            <div class="card__content">
+              <p class="card__title">Unlimited Colors 🎨</p>
+              <p class="card__description">
+                This project dynamically changes the background color every second with just the click of a button, using JavaScript's setInterval function.
+                A function generates a random color in hexadecimal format (like hashtag#34A2FE). Each color is unique and unpredictable!
+                <br><br>
+                <a href="https://github.com/neeru24/JavaScript-Diaries/blob/main/07_Projects/07_unlimitedColors.html" target="_blank">Check here</a> 🔗
+              </p>
+            </div>
+          </div>
+          </div>
+
+
+      <footer class="footer">
+        <p>Made with 💙 by Neeru. All rights reserved.</p>
+      </footer>
+      
+
+
+  
+
+    <script>
+        // JavaScript
+        const toggler = document.getElementById('toggler');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        toggler.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Remove active class from all links
+                navLinks.forEach(item => item.classList.remove('active'));
+                // Add active class to the clicked link
+                link.classList.add('active');
+                // Collapse the menu (for smaller screens)
+                navMenu.classList.remove('active');
+            });
+        });
+
+    </script>
+</body>
+</html>
