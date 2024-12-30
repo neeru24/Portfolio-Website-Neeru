@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        html, body {
+  height: 100%;
+  margin: 0;
+}
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #1e1e2e, #3a3a5a, #5c5c8a);
+            color: white;
+            padding: 20px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .brand a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.6em;
+            font-weight: bold;
+        }
+
+        .toggler {
+            display: none;
+            font-size: 1.5em;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 25px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-menu li a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-menu li a.active {
+            background-color: white;
+            color: black;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        
+ 
+        @media (max-width: 768px) {
+            .toggler {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background-color: #333;
+                width: 100%;
+                position: absolute;
+                top: 80px;
+                left: 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+        }
+
+        
+        .intro-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .content-left h1 {
+            font-size: 2rem;
+            color: #ff6f61;
+        }
+
+        .profile-pic {
+            max-width: 65%;
+            border-radius: 50%;
+            border: 2px solid #ff6f61;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05);
+        }
+
+        
+        .social {
+            height: 37px;
+            width: 37px;
+            transition: transform 0.3s ease;
+        }
+
+        .social:hover {
+            transform: scale(1.2);
+        }
+
+        
+        .footer {
+            background: linear-gradient(135deg, #1e1e2e, #3a3a5a, #5c5c8a);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+ 
+.Documents-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+  height: 45px;
+  border: none;
+  padding: 0px 15px;
+  border-radius: 5px;
+  background-color: rgb(49, 49, 83);
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.folderContainer {
+  width: 40px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+.fileBack {
+  z-index: 1;
+  width: 80%;
+  height: auto;
+}
+.filePage {
+  width: 50%;
+  height: auto;
+  position: absolute;
+  z-index: 2;
+  transition: all 0.3s ease-out;
+}
+.fileFront {
+  width: 85%;
+  height: auto;
+  position: absolute;
+  z-index: 3;
+  opacity: 0.95;
+  transform-origin: bottom;
+  transition: all 0.3s ease-out;
+}
+.text {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.Documents-btn:hover{
+  transform: scale(1.09);
+}
+
+.Documents-btn:hover .filePage {
+  transform: translateY(-5px);
+  
+}
+.Documents-btn:hover {
+  background-color: rgb(58, 58, 94);
+}
+.Documents-btn:active {
+  transform: scale(0.95);
+}
+.Documents-btn:hover .fileFront {
+  transform: rotateX(30deg);
+}
+   
+/* body {
+    width: 100%;
+  height: 100%;
+  --color: #E1E1E1;
+  background-color: #F3F3F3;
+  background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
+      linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+  background-size: 55px 55px;
+} */
+
+body{
+    background-color: #1e1e2e;
+}
+
+
+.intro-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #1e1e2e;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.content-left {
+  max-width: 50%;
+}
+
+.content-left h1 {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+.dynamic-text {
+  font-weight: bold;
+  color: #ff6f61;
+  border-right: 2px solid #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.content-right {
+  max-width: 40%;
+  padding-top: 42px;
+}
+
+.profile-pic {
+  max-width: 65%; 
+  border-radius: 50%;
+  border: 2px solid #ff6f61;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.3); 
+}
+
+.content-left {
+    max-width: 50%;
+    margin-right: auto; 
+    margin-left: 1%; 
+}
+
+.content-left2 {
+    max-width: 5%;
+    margin-right: auto; 
+    margin-left: 1%;
+}
+
+
+.footer {
+  background: linear-gradient(135deg, #1e1e2e, #3a3a5a, #5c5c8a);
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0; 
+  font-family: Arial, sans-serif; 
+  font-size: 16px;
+  position: fixed;
+  bottom: 0; 
+  width: 100%; 
+}
+
+
+
+.footer {
+  position: absolute; 
+  bottom: 0; 
+}
+
+
+ 
+ul {
+  list-style: none;
+}
+
+.example-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+.example-2 .icon-content {
+  margin: 0 10px;
+  position: relative;
+}
+
+.social{
+  height: 37px;
+  width: 37px;
+  transition: transform 0.3s ease;
+}
+
+.social:hover {
+  transform: scale(1.2); 
+}
+
+    </style>
+</head>
+<body>
+    
+    
+    <nav class="navbar">
+        <div class="container">
+            <div class="brand">
+                <a href="https://www.linkedin.com/in/neerugangarh/" target="_blank">Neeru Gangarh</a>
+            </div>
+            <button class="toggler" id="toggler">&#9776;</button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="../About/about.html" class="nav-link">About</a></li>
+                <li><a href="../Portfolio/portfolio.html" class="nav-link">Projects</a></li>
+                <li><a href="../Project/project.html" class="nav-link">Projects</a></li>
+                <li><a href="../Feedback/feedback.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+     
+    
+
+    <div class="intro-section" id="home">
+        
+            <div class="content-left2">
+            <ul class="example-2">
+                <li class="icon-content">
+                  <a
+                    href="https://www.linkedin.com/in/neerugangarh/"
+                  >
+                  <img src="image.png" class="social">
+                  </a>
+                </li>
+
+                <li class="icon-content">
+                  <a
+                    href="https://github.com/neeru24"
+                  >
+                  <img src="github_3291667.png" alt="" class="social">
+                  </a>
+                </li>
+
+                <li class="icon-content">
+                  <a
+                  href="https://youtu.be/HxgnzT8Tj9g?si=92uRuWMhjmxabfap"
+                  >
+                  <img src="youtube_1384060.png" alt="" class="social">
+                  </a>
+                </li>
+
+                <li class="icon-content">
+                  <a
+                  href="mailto:neerugangarh@gmail.com"
+                  >
+                  <img src="user_6542983.png" alt="" class="social">
+                  </a>
+                </li>
+
+                <li class="icon-content">
+                  <a
+                  href="https://mytoplinks-neeru.netlify.app/"
+                  >
+                  <img src="chain_6217552.png" alt="" class="social">
+                  </a>
+                </li>
+
+             </ul>
+    </div>
+
+    
+    <div class="content-left"> 
+          <h1>
+            Hello, my name is Neeru..
+            <br />
+            <span class="dynamic-text" id="typing-text"></span>
+          </h1>
+          
+          <button class="Documents-btn" onclick="openResume()" >
+            <span class="folderContainer">
+              <svg
+                class="fileBack"
+                width="146"
+                height="113"
+                viewBox="0 0 146 113"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 4C0 1.79086 1.79086 0 4 0H50.3802C51.8285 0 53.2056 0.627965 54.1553 1.72142L64.3303 13.4371C65.2799 14.5306 66.657 15.1585 68.1053 15.1585H141.509C143.718 15.1585 145.509 16.9494 145.509 19.1585V109C145.509 111.209 143.718 113 141.509 113H3.99999C1.79085 113 0 111.209 0 109V4Z"
+                  fill="url(#paint0_linear_117_4)"
+                ></path>
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_117_4"
+                    x1="0"
+                    y1="0"
+                    x2="72.93"
+                    y2="95.4804"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#8F88C2"></stop>
+                    <stop offset="1" stop-color="#5C52A2"></stop>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <svg
+                class="filePage"
+                width="88"
+                height="99"
+                viewBox="0 0 88 99"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="88" height="99" fill="url(#paint0_linear_117_6)"></rect>
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_117_6"
+                    x1="0"
+                    y1="0"
+                    x2="81"
+                    y2="160.5"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="white"></stop>
+                    <stop offset="1" stop-color="#686868"></stop>
+                  </linearGradient>
+                </defs>
+              </svg>
+          
+              <svg
+                class="fileFront"
+                width="160"
+                height="79"
+                viewBox="0 0 160 79"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.29306 12.2478C0.133905 9.38186 2.41499 6.97059 5.28537 6.97059H30.419H58.1902C59.5751 6.97059 60.9288 6.55982 62.0802 5.79025L68.977 1.18034C70.1283 0.410771 71.482 0 72.8669 0H77H155.462C157.87 0 159.733 2.1129 159.43 4.50232L150.443 75.5023C150.19 77.5013 148.489 79 146.474 79H7.78403C5.66106 79 3.9079 77.3415 3.79019 75.2218L0.29306 12.2478Z"
+                  fill="url(#paint0_linear_117_5)"
+                ></path>
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_117_5"
+                    x1="38.7619"
+                    y1="8.71323"
+                    x2="66.9106"
+                    y2="82.8317"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#C3BBFF"></stop>
+                    <stop offset="1" stop-color="#51469A"></stop>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+            <p class="text">Resume</p>
+          </button>
+
+
+        </div>
+        <div class="content-right">
+          <img src="WhatsApp Image 2024-12-26 at 11.14.14 AM.jpeg" alt="Picture" class="profile-pic" />
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>Made with 💙 by Neeru. All rights reserved.</p>
+      </footer>
+      
+
+
+  
+
+    <script>
+        
+        const toggler = document.getElementById('toggler');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        toggler.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+               
+                navLinks.forEach(item => item.classList.remove('active'));
+                
+                link.classList.add('active');
+                
+                navMenu.classList.remove('active');
+            });
+        });
+
+        function openResume() {
+          window.open('https://docs.google.com/document/d/1bpvp5xpncis9lLBuGs0QVG-m8p7JlBna/edit', '_blank');
+        }
+
+        const texts = ["Web Developer", "CSE Undergraduate", "DSA Enthusiast"];
+let index = 0;
+let charIndex = 0;
+const typingText = document.getElementById("typing-text");
+
+function typeEffect() {
+  if (charIndex < texts[index].length) {
+    typingText.textContent += texts[index][charIndex];
+    charIndex++;
+    setTimeout(typeEffect, 100); 
+  } else {
+    setTimeout(eraseEffect, 1000); 
+  }
+}
+
+function eraseEffect() {
+  if (charIndex > 0) {
+    typingText.textContent = texts[index].substring(0, charIndex - 1);
+    charIndex--;
+    setTimeout(eraseEffect, 50); 
+  } else {
+    index = (index + 1) % texts.length;
+    setTimeout(typeEffect, 500); 
+  }
+}
+
+document.addEventListener("DOMContentLoaded", typeEffect);
+
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+       
+        navLinks.forEach(link => link.classList.remove('active'));
+
+        
+        link.classList.add('active');
+    });
+});
+
+    </script>
+</body>
+</html>
